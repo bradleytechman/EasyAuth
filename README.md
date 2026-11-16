@@ -3,6 +3,7 @@
 
 This fork (remember-login) keeps the upstream 26.3 behavior, with three changes:
 
+- A Java client can join only when Mojang verifies that account. A cracked client is disconnected. Bedrock players still join through Floodgate. Turn the old behavior back on with `allow-cracked-clients` in `config/EasyAuth/main.conf`.
 - After a successful login or registration, the Mojang account id is stored. That account is not asked for a password again. `/logout` forgets it. Turn this off with `remember-login` in `config/EasyAuth/main.conf`.
 - The session message is "Logged in."
 - The login prompt tells the player to check the minecraft-info channel.

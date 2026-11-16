@@ -1,6 +1,7 @@
 package xyz.nikitacartes.easyauth.mixin;
 
 import com.mojang.authlib.GameProfile;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.login.ServerboundHelloPacket;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerLoginPacketListenerImpl;
@@ -31,6 +32,9 @@ public abstract class ServerLoginPacketListenerImplMixin {
 
     @Shadow
     private ServerLoginPacketListenerImpl.State state;
+
+    @Shadow
+    public abstract void disconnect(Component reason);
 
     @Final
     @Shadow
@@ -66,57 +70,59 @@ public abstract class ServerLoginPacketListenerImplMixin {
             try {
                 Matcher matcher = pattern.matcher(username);
 
-                if (playerData.onlineAccount == PlayerEntryV1.OnlineAccount.FALSE) {
-                    LogDebug("Player " + username + " is forced to be offline");
-
-                    state = getReadyState();
-                    this.authenticatedProfile = getGameProfile(packet.name());
-                    ci.cancel();
-                    return;
-                }
                 if (playerData.onlineAccount == PlayerEntryV1.OnlineAccount.TRUE) {
                     LogDebug("Player " + username + " is cached as online player. Authentication continues as vanilla");
                     return;
                 }
                 if (!matcher.matches()) {
-                    // Player definitely doesn't have a mojang account
                     LogDebug("Player " + username + " doesn't have a valid username for Mojang account");
-
-                    state = getReadyState();
-                    playerData.onlineAccount = PlayerEntryV1.OnlineAccount.FALSE;
-                    playerData.update();
-
-                    this.authenticatedProfile = getGameProfile(packet.name());
-                    ci.cancel();
-                } else {
-                    UUID onlineUuid = getUuid(username);
-
-                    if ((EasyAuth.extendedConfig.preventOfflinePlayersWithOnlineUsernames && onlineUuid != null) || checkUuid(packet.profileId(), onlineUuid)) {
-                        // Caches the request
-                        playerData.onlineAccount = PlayerEntryV1.OnlineAccount.TRUE;
-                        playerData.update();
-                        // Authentication continues in the original method
-                    } else {
-                        if (onlineUuid == null) {
-                            LogDebug("Player " + username + " doesn't have a Mojang account");
-                            playerData.onlineAccount = PlayerEntryV1.OnlineAccount.FALSE;
-                            playerData.update();
-                        } else {
-                            LogInfo("Player " + username + " has a Mojang account, but UUID mismatch: expected " + onlineUuid + ", got " + packet.profileId());
-                            if (!EasyAuth.extendedConfig.checkOfflinePlayersWithOnlineUsernames) {
-                                playerData.onlineAccount = PlayerEntryV1.OnlineAccount.FALSE;
-                                playerData.update();
-                            }
-                        }
-                        state = getReadyState();
-                        this.authenticatedProfile = getGameProfile(packet.name());
-                        ci.cancel();
-                    }
+                    acceptOfflineOrReject(username, playerData, ci);
+                    return;
                 }
+
+                UUID onlineUuid = getUuid(username);
+                UUID presented = packet.profileId();
+                if (onlineUuid != null && presented != null && presented.equals(onlineUuid)) {
+                    playerData.onlineAccount = PlayerEntryV1.OnlineAccount.TRUE;
+                    playerData.update();
+                    return;
+                }
+
+                if (onlineUuid != null && EasyAuth.extendedConfig.preventOfflinePlayersWithOnlineUsernames) {
+                    // Vanilla session verification rejects a client that does not own this account.
+                    return;
+                }
+
+                if (onlineUuid == null) {
+                    LogDebug("Player " + username + " doesn't have a Mojang account");
+                } else {
+                    LogInfo("Player " + username + " has a Mojang account, but UUID mismatch: expected " + onlineUuid + ", got " + presented);
+                }
+                acceptOfflineOrReject(username, playerData, ci);
             } catch (IOException e) {
                 LogError("checkPremium error", e);
             }
         }
+    }
+
+    /**
+     * Floodgate handles Bedrock logins before this method runs, so a rejected
+     * client here is a Java client that Mojang did not authenticate.
+     */
+    @Unique
+    private void acceptOfflineOrReject(String username, PlayerEntryV1 playerData, CallbackInfo ci) {
+        if (!EasyAuth.config.allowCrackedClients) {
+            LogInfo("Rejected non-premium client " + username);
+            disconnect(Component.literal("This server requires a Minecraft Java account."));
+            ci.cancel();
+            return;
+        }
+
+        state = getReadyState();
+        playerData.onlineAccount = PlayerEntryV1.OnlineAccount.FALSE;
+        playerData.update();
+        this.authenticatedProfile = getGameProfile(username);
+        ci.cancel();
     }
 
     @Unique
@@ -138,11 +144,6 @@ public abstract class ServerLoginPacketListenerImplMixin {
     @Unique
     private ServerLoginPacketListenerImpl.State getReadyState() {
         return ServerLoginPacketListenerImpl.State.VERIFYING;
-    }
-
-    @Unique
-    private boolean checkUuid(UUID uuid, UUID onlineUuid) {
-        return uuid.equals(onlineUuid);
     }
 
 }

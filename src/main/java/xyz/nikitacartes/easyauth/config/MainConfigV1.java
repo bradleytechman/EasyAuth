@@ -41,6 +41,13 @@ public class MainConfigV1 extends ConfigTemplate {
 
     @Comment("""
             
+            When false, a Java client can join only if Mojang verifies that account.
+            A cracked client that types a name is disconnected.
+            Bedrock players still join through Floodgate and then use /login.""")
+    public boolean allowCrackedClients = false;
+
+    @Comment("""
+            
             How long to keep session (auto-logging in the player), in seconds.
             Set to -1 to disable.
             For more information, see https://github.com/NikitaCartes/EasyAuth/wiki/Sessions""")
