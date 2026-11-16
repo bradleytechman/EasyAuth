@@ -4,7 +4,7 @@
   "text.easyauth.wrongPassword": "§4Password errata!",
   "text.easyauth.matchPassword": "§6Le password devono corrispondere!",
   "text.easyauth.passwordUpdated": "§aLa tua password è stata aggiornata correttamente!",
-  "text.easyauth.loginRequired": "§cNon sei autenticato!\n§6Usa /login, /l per autenticarti!",
+  "text.easyauth.loginRequired": "§cYou are not authenticated!\n§6Use /login or /l to authenticate. Check the minecraft-info channel for more info on logging in.",
   "text.easyauth.loginTriesExceeded": "§4Troppi tentativi di accesso. Aspetta alcuni minuti e riprova.",
   "text.easyauth.globalPasswordSet": "§aPassword globale impostata correttamente!",
   "text.easyauth.cannotChangePassword": "§cNon puoi cambiare password!",
@@ -14,7 +14,7 @@
   "text.easyauth.successfullyAuthenticated": "§aSei ora autenticato.",
   "text.easyauth.successfulLogout": "§aLogout eseguito correttamente.",
   "text.easyauth.timeExpired": "§cTempo per l'autenticazione scaduto.",
-  "text.easyauth.registerRequired": "§6Inserisci /register \u003cpassword\u003e \u003cpassword\u003e per rivendicare questo account.",
+  "text.easyauth.registerRequired": "§6Use /register <password> <password> to claim this account. Check the minecraft-info channel for more info on logging in.",
   "text.easyauth.alreadyRegistered": "§6Questo account è già registrato!",
   "text.easyauth.registerSuccess": "§aSei ora registrato e autenticato.",
   "text.easyauth.userdataDeleted": "§aDati utente eliminati.",
@@ -30,5 +30,7 @@
   "text.easyauth.userNotRegistered": "§cQuesto giocatore non è registrato!",
   "text.easyauth.cannotLogout": "§cNon puoi effettuare il logout!",
   "text.easyauth.offlineUuid": "L'UUID offline per il giocatore %s è (clicca per copiare)\n%s",
-  "text.easyauth.registeredPlayers": "Lista di giocatori registrati:"
+  "text.easyauth.registeredPlayers": "Lista di giocatori registrati:",
+  "text.easyauth.registerRequiredWithGlobalPassword": "§6Use /register <global password> <password> <password> to claim this account. Check the minecraft-info channel for more info on logging in.",
+  "text.easyauth.validSession": "§aLogged in."
 }

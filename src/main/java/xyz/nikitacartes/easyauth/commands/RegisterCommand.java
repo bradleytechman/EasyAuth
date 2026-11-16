@@ -159,6 +159,7 @@ public class RegisterCommand {
             playerData.registrationDate = ZonedDateTime.now();
             playerData.lastIp = playerAuth.easyAuth$getIpAddress();
             playerData.lastAuthenticatedDate = ZonedDateTime.now();
+            playerData.rememberLogin(player.getUUID());
             playerAuth.easyAuth$setPlayerEntryV1(playerData);
             playerData.update();
             

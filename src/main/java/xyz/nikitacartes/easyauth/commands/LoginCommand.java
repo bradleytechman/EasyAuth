@@ -75,6 +75,7 @@ public class LoginCommand {
             playerData.loginTries = 0;
             String oldIp = playerData.lastIp;
             playerData.lastIp = playerAuth.easyAuth$getIpAddress();
+            playerData.rememberLogin(player.getUUID());
             playerData.update();
             
             // Invalidate IP cache if IP changed

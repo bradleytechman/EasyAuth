@@ -32,6 +32,7 @@ public class LogoutCommand {
 
             PlayerEntryV1 playerData = playerAuth.easyAuth$getPlayerEntryV1();
             playerData.lastAuthenticatedDate = getUnixZero();
+            playerData.permanentLogin = false;
             playerData.update();
 
             langConfig.successfulLogout.send(serverCommandSource);

@@ -4,7 +4,7 @@
   "text.easyauth.wrongPassword": "§4Mauvais mot de passe !",
   "text.easyauth.matchPassword": "§6Les mots de passe doivent correspondres !",
   "text.easyauth.passwordUpdated": "§aVotre mot de passe a été modifié avec succès !",
-  "text.easyauth.loginRequired": "§cVous n'êtes pas connecté !\n§6Tapez /login, /l pour vous connecter !",
+  "text.easyauth.loginRequired": "§cYou are not authenticated!\n§6Use /login or /l to authenticate. Check the minecraft-info channel for more info on logging in.",
   "text.easyauth.loginTriesExceeded": "§4Trop de tentatives de connection.",
   "text.easyauth.globalPasswordSet": "§aLe mot de passe global a été créé avec succès !",
   "text.easyauth.cannotChangePassword": "§cVous ne pouvez pas changer de mot de passe !",
@@ -14,7 +14,7 @@
   "text.easyauth.successfullyAuthenticated": "§aVous êtes maintenant connecté.",
   "text.easyauth.successfulLogout": "§aDéconnexion réussie.",
   "text.easyauth.timeExpired": "§cLe temps pour se connecter a expiré.",
-  "text.easyauth.registerRequired": "§6Tapez /register \u003cmotdepasse\u003e \u003cmotdepasse\u003e pour vous approprier ce compte.",
+  "text.easyauth.registerRequired": "§6Use /register <password> <password> to claim this account. Check the minecraft-info channel for more info on logging in.",
   "text.easyauth.alreadyRegistered": "§6Ce nom de compte est déjà enregistré !",
   "text.easyauth.registerSuccess": "§aVous êtes maintenant connecté.",
   "text.easyauth.userdataDeleted": "§aDonnées utilisateur supprimées.",
@@ -31,6 +31,7 @@
   "text.easyauth.cannotLogout": "§cVous ne pouvez pas vous déconnecter !",
   "text.easyauth.offlineUuid": "L'UUID hors ligne du joueur %s est (cliquer pour copier)\n%s",
   "text.easyauth.registeredPlayers": "Liste des joueurs enregistrés :",
-  "text.easyauth.validSession": "§aVous avez une session valide. Pas besoin de se connecter.",
-  "text.easyauth.onlinePlayerLogin": "§aVous utilisez un compte Mojang. Pas besoin de se connecter."
+  "text.easyauth.validSession": "§aLogged in.",
+  "text.easyauth.onlinePlayerLogin": "§aVous utilisez un compte Mojang. Pas besoin de se connecter.",
+  "text.easyauth.registerRequiredWithGlobalPassword": "§6Use /register <global password> <password> <password> to claim this account. Check the minecraft-info channel for more info on logging in."
 }

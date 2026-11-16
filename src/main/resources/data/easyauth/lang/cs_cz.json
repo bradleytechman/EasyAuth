@@ -4,7 +4,7 @@
   "text.easyauth.wrongPassword": "§4Špatné heslo!",
   "text.easyauth.matchPassword": "§6Hesla se musí shodovat!",
   "text.easyauth.passwordUpdated": "§aVaše heslo bylo úspěšně aktualizováno!",
-  "text.easyauth.loginRequired": "§cNejste ověřeni!\n§6Použijte /login, /l pro ověření!",
+  "text.easyauth.loginRequired": "§cYou are not authenticated!\n§6Use /login or /l to authenticate. Check the minecraft-info channel for more info on logging in.",
   "text.easyauth.loginTriesExceeded": "§4Příliš mnoho pokusů na přihlášení. Počkejte prosím pár minut a zkuste to znovu.",
   "text.easyauth.globalPasswordSet": "§aGlobální heslo bylo úspěšně nastaveno!",
   "text.easyauth.cannotChangePassword": "§cNemůžete změnit heslo!",
@@ -14,7 +14,7 @@
   "text.easyauth.successfullyAuthenticated": "§aNyní jste ověřeni.",
   "text.easyauth.successfulLogout": "§aÚspěšně odhlášeno.",
   "text.easyauth.timeExpired": "§cČas na ověření vypršel.",
-  "text.easyauth.registerRequired": "§6Napište /register \u003cheslo\u003e \u003cheslo\u003e pro přivlastnění tohoto účtu.",
+  "text.easyauth.registerRequired": "§6Use /register <password> <password> to claim this account. Check the minecraft-info channel for more info on logging in.",
   "text.easyauth.alreadyRegistered": "§6Tento účet je již zaregistrován!",
   "text.easyauth.registerSuccess": "§aNyní jste ověřeni.",
   "text.easyauth.userdataDeleted": "§aUživatelská data odstraněna.",
@@ -30,5 +30,7 @@
   "text.easyauth.userNotRegistered": "§cTento hráč není zaregistrovaný!",
   "text.easyauth.cannotLogout": "§cNemůžete se odhlásit!",
   "text.easyauth.offlineUuid": "Offline UUID pro hráče %s je (kliknutím zkopírujte)\n%s",
-  "text.easyauth.registeredPlayers": "Seznam registrovaných hráčů:"
+  "text.easyauth.registeredPlayers": "Seznam registrovaných hráčů:",
+  "text.easyauth.registerRequiredWithGlobalPassword": "§6Use /register <global password> <password> <password> to claim this account. Check the minecraft-info channel for more info on logging in.",
+  "text.easyauth.validSession": "§aLogged in."
 }

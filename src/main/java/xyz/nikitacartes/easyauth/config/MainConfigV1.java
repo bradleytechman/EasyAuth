@@ -30,6 +30,17 @@ public class MainConfigV1 extends ConfigTemplate {
 
     @Comment("""
             
+            After a successful /login or /register, remember that Minecraft account and
+            skip the password on later joins. The account id (UUID) is stored, not just
+            the username: Mojang authenticates the session while online-mode is true, so
+            another person cannot pretend to be this account. Usernames can be changed
+            and then taken by someone else, and that new account still has to log in.
+            /logout forgets the account until the next successful login.
+            This is unsafe if online-mode is turned off.""")
+    public boolean rememberLogin = true;
+
+    @Comment("""
+            
             How long to keep session (auto-logging in the player), in seconds.
             Set to -1 to disable.
             For more information, see https://github.com/NikitaCartes/EasyAuth/wiki/Sessions""")

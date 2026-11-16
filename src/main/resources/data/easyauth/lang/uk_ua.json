@@ -4,7 +4,7 @@
   "text.easyauth.wrongPassword": "§4Невірний пароль!",
   "text.easyauth.matchPassword": "§6Пароль повинні співпадати!",
   "text.easyauth.passwordUpdated": "§aВаш пароль було успішно змінено!",
-  "text.easyauth.loginRequired": "§cВи не авторизовані!\n§6Скористайтесь /login, /l для авторизації!",
+  "text.easyauth.loginRequired": "§cYou are not authenticated!\n§6Use /login or /l to authenticate. Check the minecraft-info channel for more info on logging in.",
   "text.easyauth.loginTriesExceeded": "§4Забагато спроб входу. Спробуйте увійти знову через кілька хвилин.",
   "text.easyauth.globalPasswordSet": "§aГлобальний пароль встановлено успішно!",
   "text.easyauth.cannotChangePassword": "§cВи не можете змінити пароль!",
@@ -14,7 +14,7 @@
   "text.easyauth.successfullyAuthenticated": "§aВи успішно авторизувались.",
   "text.easyauth.successfulLogout": "§aВи вийшли успішно.",
   "text.easyauth.timeExpired": "§cЧас для авторизації вичерпано.",
-  "text.easyauth.registerRequired": "§6Скористайтесь /register \u003cпароль\u003e \u003cпароль\u003e щоб зареєструвати ваш акаунт.",
+  "text.easyauth.registerRequired": "§6Use /register <password> <password> to claim this account. Check the minecraft-info channel for more info on logging in.",
   "text.easyauth.alreadyRegistered": "§6Акаунт з цим іменем вже зареєстрований!",
   "text.easyauth.registerSuccess": "§aВи успішно зареєструвались.",
   "text.easyauth.userdataDeleted": "§aДані користувача видалено.",
@@ -31,6 +31,7 @@
   "text.easyauth.cannotLogout": "§cВи не можете вийти з акаунту!",
   "text.easyauth.offlineUuid": "Оффлайновий UUID для гравця %s це (натисніть, щоб скопіювати)\n%s",
   "text.easyauth.registeredPlayers": "Список зареєстрованих гравців:",
-  "text.easyauth.validSession": "§aВаша сесія дійсна. Немає потреби авторизовуватись.",
-  "text.easyauth.onlinePlayerLogin": "§aВи використовуєте онлайн акаунт. Немає потреби авторизовуватись."
+  "text.easyauth.validSession": "§aLogged in.",
+  "text.easyauth.onlinePlayerLogin": "§aВи використовуєте онлайн акаунт. Немає потреби авторизовуватись.",
+  "text.easyauth.registerRequiredWithGlobalPassword": "§6Use /register <global password> <password> <password> to claim this account. Check the minecraft-info channel for more info on logging in."
 }

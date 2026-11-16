@@ -4,7 +4,7 @@
   "text.easyauth.wrongPassword": "§4Złe hasło!",
   "text.easyauth.matchPassword": "§6Hasła muszą być identyczne!",
   "text.easyauth.passwordUpdated": "§aHasło zmienione!",
-  "text.easyauth.loginRequired": "§c§6Użyj /login, /l aby się zalogować!",
+  "text.easyauth.loginRequired": "§cYou are not authenticated!\n§6Use /login or /l to authenticate. Check the minecraft-info channel for more info on logging in.",
   "text.easyauth.loginTriesExceeded": "§4Spróbuj ponownie później. Za dużo pomyłek.",
   "text.easyauth.globalPasswordSet": "§aHasło globalne utworzono pomyślnie!",
   "text.easyauth.cannotChangePassword": "§cNie możesz zmienić hasła!",
@@ -14,7 +14,7 @@
   "text.easyauth.successfullyAuthenticated": "§aZalogowano pomyślnie!",
   "text.easyauth.successfulLogout": "§aWylogowano pomyślnie.",
   "text.easyauth.timeExpired": "§cCzas na zalogowanie się minął.",
-  "text.easyauth.registerRequired": "§6Wpisz: /register \u003ehasło\u003e \u003chasło\u003e\naby utworzyć hasło.",
+  "text.easyauth.registerRequired": "§6Use /register <password> <password> to claim this account. Check the minecraft-info channel for more info on logging in.",
   "text.easyauth.alreadyRegistered": "§6To konto jest już zarejestrowane!",
   "text.easyauth.registerSuccess": "§aPomyślnie zarejestrowano.",
   "text.easyauth.userdataDeleted": "§aDane usunięte.",
@@ -30,5 +30,7 @@
   "text.easyauth.userNotRegistered": "§cTen gracz nie jest zarejestrowany!",
   "text.easyauth.cannotLogout": "§cNie możesz się wylogować!",
   "text.easyauth.offlineUuid": "Offline UUID dla %s to %s",
-  "text.easyauth.registeredPlayers": "Zarejestrowani gracze:"
+  "text.easyauth.registeredPlayers": "Zarejestrowani gracze:",
+  "text.easyauth.registerRequiredWithGlobalPassword": "§6Use /register <global password> <password> <password> to claim this account. Check the minecraft-info channel for more info on logging in.",
+  "text.easyauth.validSession": "§aLogged in."
 }

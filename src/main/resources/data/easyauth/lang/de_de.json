@@ -4,7 +4,7 @@
   "text.easyauth.wrongPassword": "§4Falsches Passwort!",
   "text.easyauth.matchPassword": "§6Passwörter müssen übereinstimmen!",
   "text.easyauth.passwordUpdated": "§aDein Passwort wurde erfolgreich geändert!",
-  "text.easyauth.loginRequired": "§cDu bist nicht authentifiziert!\n§6Nutze /login, /l um dich zu authentifizieren!",
+  "text.easyauth.loginRequired": "§cYou are not authenticated!\n§6Use /login or /l to authenticate. Check the minecraft-info channel for more info on logging in.",
   "text.easyauth.loginTriesExceeded": "§4Zu viele Anmeldeversuche.",
   "text.easyauth.globalPasswordSet": "§aGlobales Passwort erfolgreich festgelegt!",
   "text.easyauth.cannotChangePassword": "§cDu kannst das Passwort nicht ändern!",
@@ -14,7 +14,7 @@
   "text.easyauth.successfullyAuthenticated": "§aDu bist jetzt authentifiziert.",
   "text.easyauth.successfulLogout": "§aErfolgreich abgemeldet.",
   "text.easyauth.timeExpired": "§cDie Authentifizierungszeit ist abgelaufen.",
-  "text.easyauth.registerRequired": "§6Tippe /register \u003cpassword\u003e \u003cpassword\u003e um diesen Account zu übernehmen.",
+  "text.easyauth.registerRequired": "§6Use /register <password> <password> to claim this account. Check the minecraft-info channel for more info on logging in.",
   "text.easyauth.alreadyRegistered": "§6Dieser Accountname ist bereits registriert!",
   "text.easyauth.registerSuccess": "§aDu bist nun authetifiziert.",
   "text.easyauth.userdataDeleted": "§aBenutzerdaten gelöscht.",
@@ -27,5 +27,7 @@
   "text.easyauth.playerAlreadyOnline": "§cSpielerIn %s ist bereits online!",
   "text.easyauth.worldSpawnSet": "§aSpawn für die Anmeldung wurde erfolgreich gesetzt.",
   "text.easyauth.corruptedPlayerData": "§cDeine Daten sind wahrscheinlich beschädigt. Bitte wende dich an einen Admin.",
-  "text.easyauth.userNotRegistered": "§cDiese(r) SpielerIn ist nicht registriert!"
+  "text.easyauth.userNotRegistered": "§cDiese(r) SpielerIn ist nicht registriert!",
+  "text.easyauth.registerRequiredWithGlobalPassword": "§6Use /register <global password> <password> <password> to claim this account. Check the minecraft-info channel for more info on logging in.",
+  "text.easyauth.validSession": "§aLogged in."
 }

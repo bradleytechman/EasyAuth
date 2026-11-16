@@ -90,6 +90,14 @@ public class PlayerEntryV1 {
     @SerializedName("forced_uuid")
     public String forcedUuid = null;
 
+    /**
+     * When true, this account has logged in once and should skip the password
+     * on later joins, as long as the joining UUID matches {@link #uuid}.
+     */
+    @Expose
+    @SerializedName("permanent_login")
+    public boolean permanentLogin = false;
+
 
     public PlayerEntryV1(String username, String usernameLowerCase, String uuid, String json) {
         PlayerEntryV1 entry = gson.fromJson(json, PlayerEntryV1.class);
@@ -108,6 +116,43 @@ public class PlayerEntryV1 {
         this.registrationDate = entry.registrationDate == null ? startOfTime : entry.registrationDate;
         this.dataVersion = entry.dataVersion;
         this.forcedUuid = entry.forcedUuid;
+        this.permanentLogin = entry.permanentLogin;
+    }
+
+    /**
+     * True when this account should skip the password for {@code currentUuid}.
+     * A previous successful login is migrated into a remembered login on the
+     * next join of that same account.
+     */
+    public boolean hasRememberedLogin(UUID currentUuid) {
+        if (config == null || !config.rememberLogin || currentUuid == null) {
+            return false;
+        }
+        if (this.permanentLogin) {
+            return currentUuid.equals(this.uuid);
+        }
+        if (this.lastAuthenticatedDate == null || !this.lastAuthenticatedDate.isAfter(getUnixZero())) {
+            return false;
+        }
+        if (this.uuid != null && !this.uuid.equals(currentUuid)) {
+            return false;
+        }
+        this.uuid = currentUuid;
+        this.permanentLogin = true;
+        this.update();
+        return true;
+    }
+
+    /**
+     * Remember this account after a correct password. A later join with the
+     * same UUID skips authentication.
+     */
+    public void rememberLogin(UUID currentUuid) {
+        if (config == null || !config.rememberLogin || currentUuid == null) {
+            return;
+        }
+        this.uuid = currentUuid;
+        this.permanentLogin = true;
     }
 
     public PlayerEntryV1(String username) {

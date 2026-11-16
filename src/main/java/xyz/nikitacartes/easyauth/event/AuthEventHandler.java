@@ -299,7 +299,9 @@ public class AuthEventHandler {
             playerAuth.easyAuth$setAuthenticated(true);
 
             update = false;
-        } else if (cache.lastIp.equals(playerAuth.easyAuth$getIpAddress()) && cache.lastAuthenticatedDate.plusSeconds(config.sessionTimeout).isAfter(ZonedDateTime.now())) {
+        } else if (cache.hasRememberedLogin(player.getUUID())) {
+            playerAuth.easyAuth$setAuthenticated(true);
+        } else if (!cache.permanentLogin && cache.lastIp.equals(playerAuth.easyAuth$getIpAddress()) && cache.lastAuthenticatedDate.plusSeconds(config.sessionTimeout).isAfter(ZonedDateTime.now())) {
             playerAuth.easyAuth$setAuthenticated(true);
 
             cache.lastAuthenticatedDate = ZonedDateTime.now();

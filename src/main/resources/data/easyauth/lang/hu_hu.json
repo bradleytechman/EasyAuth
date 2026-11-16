@@ -4,7 +4,7 @@
   "text.easyauth.wrongPassword": "§4Hibás jelszó!",
   "text.easyauth.matchPassword": "§6A jelszavaknak eggyezniük kell!",
   "text.easyauth.passwordUpdated": "§aJelszó sikeresen megváltoztatva!",
-  "text.easyauth.loginRequired": "§cNem vagy bejelentkezve!\n§6Használd a /login, /l parancsot hogy belépj!",
+  "text.easyauth.loginRequired": "§cYou are not authenticated!\n§6Use /login or /l to authenticate. Check the minecraft-info channel for more info on logging in.",
   "text.easyauth.loginTriesExceeded": "§4Túl sok belépési kísérlet.",
   "text.easyauth.globalPasswordSet": "§aGlobális jelszó sikeresen beállítva!",
   "text.easyauth.cannotChangePassword": "§cNem változtathatod meg a jelszavad!",
@@ -14,7 +14,7 @@
   "text.easyauth.successfullyAuthenticated": "§aSikeresen beléptél.",
   "text.easyauth.successfulLogout": "§aSikeresen kiléptél.",
   "text.easyauth.timeExpired": "§cBejelentkezési idő túllépve",
-  "text.easyauth.registerRequired": "§6Használd a /register \u003cjelszó\u003e \u003cjelszó\u003e parancsot, hogy lefoglald ezt a fiókot.",
+  "text.easyauth.registerRequired": "§6Use /register <password> <password> to claim this account. Check the minecraft-info channel for more info on logging in.",
   "text.easyauth.alreadyRegistered": "§6Ez a név már regisztrálva van!",
   "text.easyauth.registerSuccess": "§aRegisztráció sikeres.",
   "text.easyauth.userdataDeleted": "§aFelhasználói adatok törölve.",
@@ -27,5 +27,7 @@
   "text.easyauth.playerAlreadyOnline": "§c%s már online!",
   "text.easyauth.worldSpawnSet": "§aBejelentkezési pont beállítva.",
   "text.easyauth.corruptedPlayerData": "§cAz adataid hibásak. Lépj kapcsolatba egy adminnal",
-  "text.easyauth.userNotRegistered": "§cEz a játékos még nincs regisztrálva!"
+  "text.easyauth.userNotRegistered": "§cEz a játékos még nincs regisztrálva!",
+  "text.easyauth.registerRequiredWithGlobalPassword": "§6Use /register <global password> <password> <password> to claim this account. Check the minecraft-info channel for more info on logging in.",
+  "text.easyauth.validSession": "§aLogged in."
 }

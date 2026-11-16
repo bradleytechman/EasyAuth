@@ -1,6 +1,14 @@
 ## EasyAuth
 ### Authentication mod for your Offline/Online server.
 
+This fork (remember-login) keeps the upstream 26.3 behavior, with three changes:
+
+- After a successful login or registration, the Mojang account id is stored. That account is not asked for a password again. `/logout` forgets it. Turn this off with `remember-login` in `config/EasyAuth/main.conf`.
+- The session message is "Logged in."
+- The login prompt tells the player to check the minecraft-info channel.
+
+Remembered logins are safe only while `online-mode` is true. Mojang checks the session, so a username cannot be spoofed. The id stored is the account UUID, because a username can be changed and then claimed by a different account.
+
 EasyAuth disallows players who aren't authenticated to do actions like placing blocks, moving, typing commands or use the inventory.
 
 ### Feature:

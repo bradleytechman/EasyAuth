@@ -55,9 +55,16 @@ public abstract class ServerConfigurationPacketListenerImplMixin extends ServerC
             return;
         }
 
-        if (entry.lastIp.isEmpty()) {
+        if (entry.hasRememberedLogin(gameProfile.id())) {
+            spawnTask.easyAuth$setAuthenticated(true);
+            LogDebug(String.format("Player %s is authenticated by remembered login", gameProfile.name()));
+
+            return;
+        }
+
+        if (entry.permanentLogin || entry.lastIp.isEmpty()) {
             spawnTask.easyAuth$setAuthenticated(false);
-            LogDebug(String.format("Player %s is not authenticated: no IP", gameProfile.name()));
+            LogDebug(String.format("Player %s is not authenticated: %s", gameProfile.name(), entry.permanentLogin ? "remembered account id does not match" : "no IP"));
 
             return;
         }
